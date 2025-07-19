@@ -18,6 +18,10 @@ public class LevelSpawner : MonoBehaviour
     public void Start()
     {
         CreateObstaclePool(numberOfObstacles);
+
+    }
+    public void StartSpawner()
+    {
         StartCoroutine(SpawnObstacleRoutine());
     }
     // create pool of ibstacles
@@ -67,7 +71,10 @@ public class LevelSpawner : MonoBehaviour
 
     private void Update()
     {
-
+        if (GameManager.Instance.isGameOver)
+        {
+            return; // Do not process if the game is over
+        }
         if (obstacleQueue.Count > 0)
         {
             MoveObstacles();
@@ -100,6 +107,27 @@ public class LevelSpawner : MonoBehaviour
     }
 
     void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+    public void ResetSpawner()
+    {
+        foreach (ObstacleMover obstacle in obstacleQueue)
+        {
+            if (obstacle != null)
+            {
+                obstacle.gameObject.SetActive(false);
+                obstaclePool.Enqueue(obstacle);
+            }
+        }
+        obstacleQueue.Clear();
+        totalSpawncount = 0;
+        targetSpawnCount = 5;
+        StopAllCoroutines();
+        StartCoroutine(SpawnObstacleRoutine());
+    }
+
+    public void OnGameOver()
     {
         StopAllCoroutines();
     }

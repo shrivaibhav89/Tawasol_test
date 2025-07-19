@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControll : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerControll : MonoBehaviour
     public bool isGrounded = true;
     private float moveSpeed = 5f;
     public RemoteSync remotePlayer;
-    
+
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class PlayerControll : MonoBehaviour
         {
             Debug.LogError("Rigidbody component not found on the player object.");
         }
+        remotePlayer.InitPosition(transform.position); // Initialize remote player position
     }
     private void MovePlayer()
     {
@@ -41,10 +43,23 @@ public class PlayerControll : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
     }
+    public void ResetPlayer()
+    {
+        // Reset player position
+        rb.velocity = Vector3.zero; // Reset velocity
+
+        isplayerMoving = false; // Reset player movement state
+        xMovement = 0f; // Reset horizontal movement
+        transform.position = Vector3.zero;
+        isGrounded = true; // Reset grounded state
+    }
 
     void Update()
     {
-
+        if (GameManager.Instance.isGameOver)
+        {
+            return; // Do not process input if the game is over
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -85,6 +100,16 @@ public class PlayerControll : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Collided with obstacle");
+            GameManager.Instance.GameOver(); // Call GameOver method from GameManager
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            Debug.Log("Collected a coin");
+            other.gameObject.SetActive(false); // Deactivate the coin when collected
+            GameManager.Instance.IncreaseScore(10); // Increase score by 1
         }
     }
 }
