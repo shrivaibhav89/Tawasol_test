@@ -22,6 +22,7 @@ public class RemoteSync : MonoBehaviour
         // For example, you can update the remote player's score or perform some action
         Debug.Log("Remote player collected a coin");
         ChecknearbyCoin();
+        GameManager.Instance.coinParticalManager.PlayCoinCollectParticle(transform.position);
     }
 
     private void ChecknearbyCoin()

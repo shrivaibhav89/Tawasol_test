@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public LevelSpawner levelSpawner;
     public LevelSpawner LevelSpawnerRemote;
     public PlayerControll playerController;
+    public CoinParticalManager coinParticalManager;
     public bool isGameOver = false;
 
     public Action OnCoinCollected;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnCoinCollectedHandler()
     {
-        //IncreaseScore(1);
+        IncreaseScore(1);
         OnCoinCollected?.Invoke();
     }
 

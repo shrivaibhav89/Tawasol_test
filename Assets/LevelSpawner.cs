@@ -22,7 +22,9 @@ public class LevelSpawner : MonoBehaviour
     }
     public void StartSpawner()
     {
+
         StartCoroutine(SpawnObstacleRoutine());
+
     }
     // create pool of ibstacles
     public void CreateObstaclePool(int numberOfObstacles)
@@ -50,6 +52,8 @@ public class LevelSpawner : MonoBehaviour
             yield return new WaitUntil(() => obstacle.transform.localPosition.z <= 60);
         }
     }
+
+   
 
     private ObstacleMover SpawnObstacle()
     {
