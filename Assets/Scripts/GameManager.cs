@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnCoinCollectedHandler()
     {
-        IncreaseScore(1);
+       // IncreaseScore(1);
         OnCoinCollected?.Invoke();
     }
 
