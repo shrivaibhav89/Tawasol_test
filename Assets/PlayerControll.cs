@@ -60,7 +60,7 @@ public class PlayerControll : MonoBehaviour
         {
             return; // Do not process input if the game is over
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             Jump();
         }

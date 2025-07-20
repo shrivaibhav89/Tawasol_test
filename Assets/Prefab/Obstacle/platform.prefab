@@ -331,7 +331,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1931780960781674922
 Transform:
@@ -833,6 +833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: coin
       objectReference: {fileID: 0}
+    - target: {fileID: 4509259557103601435, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482486764336705075, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -871,6 +875,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7482486764336705075, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449831922925243004, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -914,6 +922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4509259557103601435, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482486764336705075, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.12
@@ -952,6 +964,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7482486764336705075, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449831922925243004, guid: 1fdd4b54c084e774289c28c285b394a6, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
