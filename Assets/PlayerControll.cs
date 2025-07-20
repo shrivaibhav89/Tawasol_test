@@ -110,6 +110,7 @@ public class PlayerControll : MonoBehaviour
             Debug.Log("Collected a coin");
             other.gameObject.SetActive(false); // Deactivate the coin when collected
             GameManager.Instance.IncreaseScore(10); // Increase score by 1
+            GameManager.Instance.OnCoinCollectedHandler(); // Invoke coin collected event
         }
     }
 }

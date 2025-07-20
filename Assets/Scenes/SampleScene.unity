@@ -557,6 +557,7 @@ MonoBehaviour:
   levelSpawner: {fileID: 2071072302}
   LevelSpawnerRemote: {fileID: 915079272}
   playerController: {fileID: 1514542230}
+  isGameOver: 0
 --- !u!4 &382035270
 Transform:
   m_ObjectHideFlags: 0
@@ -775,6 +776,7 @@ MonoBehaviour:
   startPanel: {fileID: 1994521939}
   startButton: {fileID: 1267870102}
   exitButton: {fileID: 926405544}
+  mainMenuButton: {fileID: 1031213393}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

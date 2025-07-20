@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     public PlayerControll playerController;
     public bool isGameOver = false;
 
+    public Action OnCoinCollected;
+
     void Awake()
     {
         if (Instance == null)
@@ -29,11 +32,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        isGameOver = false; // Reset game over state
-        levelSpawner.StartSpawner();
-        LevelSpawnerRemote.StartSpawner();
-        playerController.ResetPlayer(); // Reset player position
-        UIManager.Instance.SetScore(score); // Initialize score display
+        ResetGame();
     }
 
     public void IncreaseScore(int amount)
@@ -41,7 +40,11 @@ public class GameManager : MonoBehaviour
         score += amount;
         UIManager.Instance.SetScore(score);
     }
-
+    public void OnCoinCollectedHandler()
+    {
+        //IncreaseScore(1);
+        OnCoinCollected?.Invoke();
+    }
 
     public void ResetGame()
     {

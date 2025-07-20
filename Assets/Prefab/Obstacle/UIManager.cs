@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject startPanel;
     public Button startButton;
     public Button exitButton;
+    public Button mainMenuButton;
 
     void Awake()
     {
@@ -35,17 +36,27 @@ public class UIManager : MonoBehaviour
     {
         resetButton.onClick.AddListener(OnResetButtonClicked);
         startButton.onClick.AddListener(OnStartButtonClicked);
+        mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
+        exitButton.onClick.AddListener(() => Application.Quit()); // Exit button functionality
     }
     void OnDisable()
     {
         resetButton.onClick.RemoveListener(OnResetButtonClicked);
         startButton.onClick.RemoveListener(OnStartButtonClicked);
+        mainMenuButton.onClick.RemoveListener(OnMainMenuButtonClicked);
+        exitButton.onClick.RemoveListener(() => Application.Quit()); // Remove exit button listener
     }
 
     private void OnStartButtonClicked()
     {
         GameManager.Instance.StartGame();
         HideStartPanel();
+    }
+    private void OnMainMenuButtonClicked()
+    {
+        //GameManager.Instance.ResetGame();
+        HideGameOverPanel();
+        ShowStartPanel();
     }
     private void OnResetButtonClicked()
     {

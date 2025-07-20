@@ -10,7 +10,7 @@ public class LevelSpawner : MonoBehaviour
     public Queue<ObstacleMover> obstaclePool = new Queue<ObstacleMover>();
 
     private Queue<ObstacleMover> obstacleQueue = new Queue<ObstacleMover>();
-    private float resetPositionZ = 0; // Position where the obstacle will be disabled
+    private float resetPositionZ = -10f; // Position where the obstacle will be disabled
     private float spanPositionZ = 89;
     private float moveSpeed = 5;
     int totalSpawncount = 0;
@@ -123,6 +123,7 @@ public class LevelSpawner : MonoBehaviour
         obstacleQueue.Clear();
         totalSpawncount = 0;
         targetSpawnCount = 5;
+        moveSpeed = 5;
         StopAllCoroutines();
         StartCoroutine(SpawnObstacleRoutine());
     }
