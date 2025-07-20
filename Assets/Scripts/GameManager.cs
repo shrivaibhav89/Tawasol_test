@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        Application.targetFrameRate = 60; // Set target frame rate
         ResetGame();
     }
 
